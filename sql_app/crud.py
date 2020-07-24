@@ -35,23 +35,25 @@ def create_student(db: Session,name,email,phone,passwd):
     try:
         if db.query(models.Student.sid).filter(email==models.Student.email,phone==models.Student.phone).all():
             return False
-        db_user = models.Student(name=name,email=email,phone=phone,passwd=passwd,access_token=str(uuid.uuid1()))
+        token=str(uuid.uuid1())
+        db_user = models.Student(name=name,email=email,phone=phone,passwd=passwd,access_token=token)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)
     except:
         return False
-    return db_user
+    return token
 
 def create_teacher(db: Session,name,email,phone,passwd ):
     try:
         if db.query(models.Teacher.tid).filter(email==models.Teacher.email,phone==models.Teacher.phone).all():
             return False
-        db_user = models.Teacher(name=name,email=email,phone=phone,passwd=passwd,access_token=str(uuid.uuid1()))
+        token=str(uuid.uuid1())
+        db_user = models.Teacher(name=name,email=email,phone=phone,passwd=passwd,access_token=token)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)
-        return db_user
+        return token
     except Exception as e:
         print(e)
         return False
