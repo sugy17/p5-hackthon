@@ -43,7 +43,7 @@ params -
 
     qid=1&answer=working&auth=4fdf7d4c-cdf3-11ea-8e2c-309c236ac1d2
 
-returns
+returns -
 
     eg:{"qfile":null,"qid":1,"answer":"working","tid":1,"afile":null,"sid":1,"question":"hello"}
 
@@ -54,7 +54,7 @@ params -
         
     sid - student id
 
-returns -
+returns json with keys -
 
     sid,tid,qid -> ints
 
@@ -68,7 +68,7 @@ params -
         
     sid : student id
 
-returns -
+returns json with keys -
 
     sid,tid,qid -> ints
 
