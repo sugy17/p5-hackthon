@@ -45,17 +45,17 @@ async def authenticate(request: Request, call_next,db: Session = next(get_db()))
 
 @app.get("/teacher/create")
 async def register_teacher(name,email,phone,passwd,db: Session = Depends(get_db)):
-    db_user=crud.create_teacher(db=db, name=name,email=email,phone=phone,passwd=passwd)
-    if not db_user:
+    auth_code=crud.create_teacher(db=db, name=name,email=email,phone=phone,passwd=passwd)
+    if not auth_code:
          raise HTTPException(status_code=400, detail="already registered")
-    return db_user
+    return {"auth":auth_code}
 
 @app.get("/student/create")
 async def register_student(name,email,phone,passwd,db: Session = Depends(get_db)):
-    db_user = crud.create_student(db=db, name=name,email=email,phone=phone,passwd=passwd)
-    if not db_user:
+    auth_code = crud.create_student(db=db, name=name,email=email,phone=phone,passwd=passwd)
+    if not auth_code:
          raise HTTPException(status_code=400, detail="already registered")
-    return db_user
+    return {"auth":auth_code}
 
 @app.get("/student/ask")
 async def ask_question(sid,tid,question=None,qfile=None,db: Session = Depends(get_db)):
