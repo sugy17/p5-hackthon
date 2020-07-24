@@ -1,3 +1,7 @@
+## uvicorn sql_app.main:app --host 0.0.0.0 --port 80
+
+i think its not not working https 
+
 # API Routes
 
 ### Method (for all routes) = GET
