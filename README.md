@@ -10,7 +10,7 @@ i think its not not working https
 
 # /teachers
 
-    returns a list of lists -> [int,str]
+    returns a list of lists containing teacher Id and name : [int,str] -> [tid,name]
 
     eg: [[1,"name1"],[2,"name2"]]
 
@@ -54,9 +54,10 @@ returns -
 # /student/questions
 
 params - 
+    
     status:takes values ans,unans,all
         
-    sid - student id
+    sid : student id
 
 returns json with keys -
 
@@ -68,6 +69,7 @@ returns json with keys -
 # /teacher/questions
 
 params - 
+    
     status:takes values ans,unans,all
         
     sid : student id
